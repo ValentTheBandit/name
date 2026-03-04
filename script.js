@@ -58,7 +58,7 @@ document.getElementById("year").textContent = new Date().getFullYear();
 
 // ===== Kapcsolat: mailto automatikus kitöltés =====
 // FIGYELEM: írd át a saját emailedre itt:
-const TO_EMAIL = "jaro.benjamin.2005@gmail.com";
+const TO_EMAIL = "TE@EMAIL.HU";
 
 const form = document.getElementById("contactForm");
 const mailtoBtn = document.getElementById("mailtoBtn");
