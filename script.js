@@ -1,7 +1,15 @@
-const btn = document.getElementById("btn");
-const msg = document.getElementById("msg");
+function myFunction() {
 
-btn.addEventListener("click", () => {
-  const now = new Date();
-  msg.textContent = `Köszönjük! ${now.toLocaleString("hu-HU")} 🚀`;
-});
+var x = document.getElementById("myTopnav");
+
+if (x.className === "topnav") {
+
+x.className += " responsive";
+
+} else {
+
+x.className = "topnav";
+
+}
+
+}
