@@ -186,7 +186,7 @@
               <li>Egymásra épülő kezdő házi feladat lista</li>
               <li>Ismeretek összefoglalása, (5.alkalom)</li>
             </ul>
-            <a class="btn ghost full" href="#kapcsolat">Kérem</a>
+            <a class="btn ghost full package-cta" href="#kapcsolat" data-package="Kezdo">Kérem</a>
           </article>
 
           <article class="price-card featured">
@@ -202,7 +202,7 @@
               <li>Egymásra épülő kezdő és középhaladó házifeladat lista</li>
               <li>Ismeretek összefoglalása(5. és 10.alkalom)</li>
             </ul>
-            <a class="btn primary full" href="#kapcsolat">Jelentkezem</a>
+            <a class="btn ghost full package-cta" href="#kapcsolat" data-package="KezdoKozepHalado">Kérem</a>
           </article>
 
           <article class="price-card">
@@ -217,7 +217,7 @@
               <li>Középhaladó házifeladat lista</li></li>
               <li>Ismeretek összefoglalása (5. alkalom)</li>
             </ul>
-            <a class="btn ghost full" href="#kapcsolat">Érdekel</a>
+            <a class="btn ghost full package-cta" href="#kapcsolat" data-package="KozepHalado">Kérem</a>
           </article>
         </div>
       </div>
@@ -240,20 +240,34 @@
             <label for="email">Email</label>
             <input type="email" id="email" name="email" placeholder="pl. adam@email.com" required />
 
-            <div class="custom-select" id="packageSelect">
-              <div class="select-selected">Válassz csomagot</div>
+            <div class="package-field">
+              <span class="field-label">Választott csomag</span>
 
-              <div class="select-options">
-                <div data-value="Start">Start</div>
-                <div data-value="Haladás">Haladás</div>
-                <div data-value="Mentor">Mentor</div>
+              <div class="package-options">
+                <label class="package-option">
+                  <input type="radio" name="package" value="Kezdo" required>
+                  <span class="package-box">
+                    <span class="package-title">Kezdő</span>
+                  </span>
+                </label>
+
+                <label class="package-option">
+                  <input type="radio" name="package" value="KezdoKozepHalado" required>
+                  <span class="package-box">
+                    <span class="package-title">Kezdő-Középhaladó</span>
+                  </span>
+                </label>
+
+                <label class="package-option">
+                  <input type="radio" name="package" value="KozepHalado" required>
+                  <span class="package-box">
+                    <span class="package-title">Középhaladó</span>
+                  </span>
+                </label>
               </div>
-
-              <input type="hidden" id="package" name="package">
             </div>
 
             <label for="message">Megjegyzés</label>
-            
             <textarea
               id="message"
               name="message"

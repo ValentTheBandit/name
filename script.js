@@ -83,7 +83,7 @@ if (form && hint && submitBtn) {
 
     const name = document.getElementById("name")?.value.trim();
     const email = document.getElementById("email")?.value.trim();
-    const selectedPackage = document.getElementById("package")?.value;
+    const selectedPackage = document.querySelector('input[name="package"]:checked')?.value;
     const message = document.getElementById("message")?.value.trim();
 
     if (!name || !email || !selectedPackage) {
@@ -122,26 +122,31 @@ if (form && hint && submitBtn) {
   });
 }
 
-const select = document.getElementById("packageSelect");
-const selected = select.querySelector(".select-selected");
-const options = select.querySelector(".select-options");
-const hiddenInput = document.getElementById("package");
+// ===== Csomagkártya -> görgetés + automatikus kiválasztás =====
+const packageButtons = document.querySelectorAll(".package-cta");
+const contactSection = document.getElementById("kapcsolat");
+const nameInput = document.getElementById("name");
 
-selected.addEventListener("click", () => {
-  options.style.display =
-    options.style.display === "block" ? "none" : "block";
-});
+packageButtons.forEach((button) => {
+  button.addEventListener("click", (e) => {
+    e.preventDefault();
 
-options.querySelectorAll("div").forEach(option => {
-  option.addEventListener("click", () => {
-    selected.textContent = option.textContent;
-    hiddenInput.value = option.dataset.value;
-    options.style.display = "none";
+    const selectedPackage = button.dataset.package;
+    const radio = document.querySelector(`input[name="package"][value="${selectedPackage}"]`);
+
+    if (radio) {
+      radio.checked = true;
+    }
+
+    if (contactSection) {
+      contactSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    }
+
+    if (nameInput) {
+      setTimeout(() => nameInput.focus(), 350);
+    }
   });
-});
-
-document.addEventListener("click", (e) => {
-  if (!select.contains(e.target)) {
-    options.style.display = "none";
-  }
 });
