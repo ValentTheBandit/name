@@ -125,7 +125,6 @@ if (form && hint && submitBtn) {
 // ===== Csomagkártya -> görgetés + automatikus kiválasztás =====
 const packageButtons = document.querySelectorAll(".package-cta");
 const contactSection = document.getElementById("kapcsolat");
-const nameInput = document.getElementById("name");
 
 packageButtons.forEach((button) => {
   button.addEventListener("click", (e) => {
@@ -143,10 +142,6 @@ packageButtons.forEach((button) => {
         behavior: "smooth",
         block: "start"
       });
-    }
-
-    if (nameInput) {
-      setTimeout(() => nameInput.focus(), 350);
     }
   });
 });
