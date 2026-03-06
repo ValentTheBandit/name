@@ -52,12 +52,12 @@
 
         <div class="stats" role="list">
           <div class="stat" role="listitem">
-            <span class="stat-num">30–60</span>
+            <span class="stat-num">60</span>
             <span class="stat-label">perc / alkalom</span>
           </div>
           <div class="stat" role="listitem">
             <span class="stat-num">Egyéni</span>
-            <span class="stat-label">Csoportos</span>
+            <span class="stat-label"></span>
           </div>
           <div class="stat" role="listitem">
             <span class="stat-num">Személyre szabott edzésterv</span>
@@ -78,30 +78,30 @@
         <div class="grid">
           <article class="card">
             <h3>🧠 Gondolkodási rutin</h3>
-            <p>Állás értékelés, mérlegelés, tervek szövése - Előny szerzése, megtartása, kihasználása. </p>
+            <p>Állás értékelés, mérlegelés, tervek szövése. Előny szerzése, megtartása, kihasználása. </p>
           </article>
           <article class="card">
             <h3>🎯 Taktikus képességek</h3>
-            <p>Alap taktikák, csapdák, mattok, kombinációkok  — Gyorsabb felismerés, számolás gyakorlással.</p>
+            <p>Alap taktikák, csapdák, mattok, kombinációkok. Gyorsabb felismerés, számolás gyakorlással.</p>
           </article>
           <article class="card">
             <h3>🏁 Pozíciós stratégiák</h3>
-            <p>Bábuk megfelelő elhelyezése, átjátszása, felerősítése — Állás javítása, stabilizálása.</p>
+            <p>Bábuk megfelelő elhelyezése, átjátszása, felerősítése. Állás javítása, stabilizálása.</p>
           </article>
         </div>
 
         <div class="grid">
           <article class="card">
             <h3>🏁 Megnyitási ismeretek</h3>
-            <p>Király biztonságba helyezése, centrum elfoglalása, tisztek kifejlesztése — Megnyitási alapelvek.</p>
+            <p>Király biztonságba helyezése, centrum elfoglalása, tisztek kifejlesztése. Megnyitási alapelvek.</p>
           </article>
           <article class="card">
             <h3>🏁 Középjáték stratégák</h3>
-            <p>Pozíciós és taktikus játék. Gyalogszerkezet, gyengepontok kihasználása — Tervek, áttörések, előnyszerzés.</p>
+            <p>Pozíciós és taktikus játék. Gyalogszerkezet, gyengepontok kihasználása. Tervek, áttörések, előnyszerzés.</p>
           </article>
           <article class="card">
             <h3>🏁 Végjáték alapjok</h3>
-            <p>Tisztek aktiválása, király ereje, gyalogbevitel — Elméleti végjátékok, stratégiák tanulmányozása.</p>
+            <p>Tisztek aktiválása, király ereje, gyalogbevitel. Elméleti végjátékok, stratégiák tanulmányozása.</p>
           </article>
         </div>
       </div>
@@ -110,8 +110,8 @@
     <!-- TANULÓI TERV -->
     <section class="section alt" id="terv">
       <div class="container">
-        <h2>Tanulói terv (4 hét – alap)</h2>
-        <p class="muted">Egy minta útvonal. A valós tervet a szintedhez igazítjuk.</p>
+        <h2>Tanulói terv</h2>
+        <p class="muted">Egy minta útvonal. A valós tervet a szintedhez igazítjuk. </p>
 
         <ol class="timeline">
           <li>
@@ -234,25 +234,30 @@
 
         <div class="contact-grid">
           <form class="form" id="contactForm">
-            <label>
-              Név
-              <input type="text" id="name" placeholder="Pl. Ádám" required />
-            </label>
+            <label for="name">Név</label>
+            <input type="text" id="name" name="name" placeholder="Pl. Ádám" required />
 
-            <label>
-              Email
-              <input type="email" id="email" placeholder="pl. adam@email.com" required />
-            </label>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="pl. adam@email.com" required />
 
-            <label>
-              Üzenet
-              <textarea id="message" rows="5" placeholder="Miben szeretnél fejlődni? (taktika/nyitás/végjáték)"></textarea>
-            </label>
+            <label for="package">Választott csomag</label>
+            <select id="package" name="package" required>
+              <option value="">Válassz csomagot</option>
+              <option value="Start">Start</option>
+              <option value="Haladás">Haladás</option>
+              <option value="Mentor">Mentor</option>
+            </select>
+
+            <label for="message">Megjegyzés</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              placeholder="Miben szeretnél fejlődni? Mikor érsz rá? Mi a célod?"
+            ></textarea>
 
             <div class="form-actions">
-              <a class="btn ghost" id="mailtoBtn" href="mailto:jaro.benjamin.2005@gmail.com">
-                Küldés emailben
-              </a>
+              <button class="btn primary" type="submit" id="submitBtn">Jelentkezés elküldése</button>
             </div>
 
             <p class="form-hint" id="formHint" aria-live="polite"></p>
