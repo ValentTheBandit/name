@@ -92,7 +92,7 @@ if (form && hint && submitBtn) {
 
     const name = document.getElementById("name")?.value.trim();
     const email = document.getElementById("email")?.value.trim();
-    const selectedPackage = document.querySelector('input[name="package"]:checked')?.value;
+    const selectedPackage = document.getElementById("package")?.value.trim();
     const message = document.getElementById("message")?.value.trim();
 
     if (!name || !email || !selectedPackage) {
