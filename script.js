@@ -95,21 +95,7 @@ packageButtons.forEach((button) => {
 
 // ===== Mini booking rendszer =====
 const consultationDateInput = document.getElementById("consultationDate");
-const consultationTimeSelect = document.getElementById("consultationTime");
-
-// 1 = hétfő, 3 = szerda, 6 = szombat
-const availableDays = [1, 3, 6];
-
-const availableTimes = {
-  1: ["17:00", "18:00", "19:00"], // hétfő
-  3: ["17:00", "18:00", "19:00"], // szerda
-  6: ["10:00", "11:00", "12:00"]  // szombat
-};
-
-function resetTimeOptions(message = "Először válassz napot") {
-  if (!consultationTimeSelect) return;
-  consultationTimeSelect.innerHTML = `<option value="">${message}</option>`;
-}
+const consultationTimeInput = document.getElementById("consultationTime");
 
 function formatHungarianDate(dateString) {
   if (!dateString) return "";
@@ -117,41 +103,13 @@ function formatHungarianDate(dateString) {
   return date.toLocaleDateString("hu-HU", {
     year: "numeric",
     month: "long",
-    day: "numeric"
+    day: "numeric",
   });
 }
 
-function updateAvailableTimes() {
-  if (!consultationDateInput || !consultationTimeSelect) return;
-
-  const selectedDate = consultationDateInput.value;
-
-  if (!selectedDate) {
-    resetTimeOptions();
-    return;
-  }
-
-  const date = new Date(selectedDate);
-  const day = date.getDay();
-
-  if (!availableDays.includes(day)) {
-    resetTimeOptions("Erre a napra nincs foglalás");
-    consultationDateInput.setCustomValidity("Csak hétfőre, szerdára vagy szombatra foglalhatsz.");
-    consultationDateInput.reportValidity();
-    return;
-  }
-
-  consultationDateInput.setCustomValidity("");
-
-  const times = availableTimes[day] || [];
-  consultationTimeSelect.innerHTML = '<option value="">Válassz időpontot</option>';
-
-  times.forEach((time) => {
-    const option = document.createElement("option");
-    option.value = time;
-    option.textContent = time;
-    consultationTimeSelect.appendChild(option);
-  });
+function isValidConsultationTime(timeString) {
+  const timePattern = /^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/;
+  return timePattern.test(timeString);
 }
 
 if (consultationDateInput) {
@@ -160,17 +118,31 @@ if (consultationDateInput) {
   const mm = String(today.getMonth() + 1).padStart(2, "0");
   const dd = String(today.getDate()).padStart(2, "0");
   consultationDateInput.min = `${yyyy}-${mm}-${dd}`;
-
-  consultationDateInput.addEventListener("change", updateAvailableTimes);
 }
 
-if (consultationTimeSelect) {
-  resetTimeOptions();
+if (consultationTimeInput) {
+  consultationTimeInput.addEventListener("blur", () => {
+    const value = consultationTimeInput.value.trim();
+
+    if (!value) {
+      consultationTimeInput.setCustomValidity("");
+      return;
+    }
+
+    if (!isValidConsultationTime(value)) {
+      consultationTimeInput.setCustomValidity(
+        "Az időpont formátuma legyen pl. 7:00 vagy 18:30."
+      );
+      consultationTimeInput.reportValidity();
+    } else {
+      consultationTimeInput.setCustomValidity("");
+    }
+  });
 }
 
 // ===== EmailJS =====
 const EMAILJS_PUBLIC_KEY = "OrJuLoNThQSnjJUBk";
-const EMAILJS_SERVICE_ID = "service_6s6nd4y";
+const EMAILJS_SERVICE_ID = "service_p91w0g8";
 const EMAILJS_TEMPLATE_ID = "template_337cgpe";
 
 if (typeof emailjs !== "undefined") {
@@ -201,8 +173,8 @@ if (form && hint && submitBtn) {
       return;
     }
 
-    if (typeof emailjs === "undefined") {
-      hint.textContent = "❌ Az EmailJS script nincs betöltve.";
+    if (!isValidConsultationTime(consultationTime)) {
+      hint.textContent = "Az időpont formátuma legyen pl. 7:00 vagy 18:30.";
       return;
     }
 
