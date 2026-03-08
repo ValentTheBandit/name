@@ -142,7 +142,7 @@ if (consultationTimeInput) {
 
 // ===== EmailJS =====
 const EMAILJS_PUBLIC_KEY = "OrJuLoNThQSnjJUBk";
-const EMAILJS_SERVICE_ID = "service_p91w0";
+const EMAILJS_SERVICE_ID = "service_p91w0g8";
 const EMAILJS_TEMPLATE_ID = "template_337cgpe";
 
 if (typeof emailjs !== "undefined") {
