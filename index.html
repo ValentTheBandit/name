@@ -248,6 +248,25 @@
               required
             />
 
+            <label for="consultationDate">Első konzultáció napja</label>
+            <input
+              type="date"
+              id="consultationDate"
+              name="consultationDate"
+              form="contactForm"
+              required
+            />
+
+            <label for="consultationTime">Első konzultáció ideje</label>
+            <input
+              type="text"
+              id="consultationTime"
+              name="consultationTime"
+              form="contactForm"
+              placeholder="pl. 7:00 vagy 18:30"
+              required
+            />
+
             <label for="message">Megjegyzés</label>
             <textarea
               id="message"
@@ -264,29 +283,6 @@
 
             <p class="form-hint" id="formHint" aria-live="polite"></p>
           </form>
-
-          <aside class="card calendar-card">
-            <h3>Első konzultáció időpontja</h3>
-
-            <label for="consultationDate">Válassz napot</label>
-            <input
-              type="date"
-              id="consultationDate"
-              name="consultationDate"
-              form="contactForm"
-              required
-            />
-
-            <label for="consultationTime">Írd be az időpontot</label>
-            <input
-              type="text"
-              id="consultationTime"
-              name="consultationTime"
-              form="contactForm"
-              placeholder="pl. 7:00 vagy 18:30"
-              required
-            />
-          </aside>
         </div>
       </div>
     </section>
