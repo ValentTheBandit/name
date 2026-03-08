@@ -406,3 +406,35 @@ select:focus {
   .links a { padding: 12px; }
 }
 
+.calendar-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.calendar-card input,
+.calendar-card select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(0,0,0,.25);
+  color: #e2e8f0;
+  font-size: 14px;
+}
+
+.calendar-card input:focus,
+.calendar-card select:focus {
+  outline: 3px solid rgba(59,130,246,.35);
+  outline-offset: 2px;
+  border-color: rgba(59,130,246,.45);
+}
+
+.calendar-card option {
+  color: #111827;
+}
+
+.small-note {
+  font-size: 14px;
+  margin-top: 4px;
+}

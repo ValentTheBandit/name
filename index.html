@@ -264,14 +264,27 @@
             <p class="form-hint" id="formHint" aria-live="polite"></p>
           </form>
 
-          <aside class="card">
-            <h3>Szükséges adatok</h3>
-            <ul class="bullets">
-              <li>Mióta sakkozol, hány éves vagy. </li>
-              <li>Játékos szint (kezdő / középhaladó)</li>
-              <li>Mi a cél: verseny? hobbi? csapatbajnokság?</li>
-              <li>Mikor érsz rá: hétköznap / hétvége</li>
-            </ul>
+          <aside class="card calendar-card">
+
+            <h3>Első konzultáció időpontja</h3>
+
+            <label for="consultationDate">Válassz napot</label>
+            <input
+              type="date"
+              id="consultationDate"
+              name="consultationDate"
+              required
+            />
+
+            <label for="consultationTime">Válassz időpontot</label>
+            <select
+              id="consultationTime"
+              name="consultationTime"
+              required
+            >
+              <option value="">Először válassz napot</option>
+            </select>
+
           </aside>
         </div>
       </div>
