@@ -185,11 +185,15 @@ if (form && hint && submitBtn) {
       name,
       email,
       package: selectedPackage,
-      consultation_date: formatHungarianDate(consultationDate),
-      consultation_time: consultationTime,
+      consultationDate: formatHungarianDate(consultationDate),
+      consultationTime: consultationTime,
       message: message || "-",
       reply_to: email,
     };
+
+    console.log("DÁTUM:", consultationDate);
+    console.log("IDŐ:", consultationTime);
+    console.log("PARAMS:", templateParams);
 
     console.log("=== EmailJS DEBUG START ===");
     console.log("PUBLIC KEY:", EMAILJS_PUBLIC_KEY);
