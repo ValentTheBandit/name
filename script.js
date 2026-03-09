@@ -256,15 +256,3 @@ if (consultationDateInput) {
   });
 }
 
-const datePlaceholder = document.getElementById("datePlaceholder");
-
-function toggleDatePlaceholder() {
-  if (!consultationDateInput || !datePlaceholder) return;
-  datePlaceholder.style.display = consultationDateInput.value ? "none" : "block";
-}
-
-if (consultationDateInput) {
-  consultationDateInput.addEventListener("change", toggleDatePlaceholder);
-  consultationDateInput.addEventListener("input", toggleDatePlaceholder);
-  toggleDatePlaceholder();
-}
