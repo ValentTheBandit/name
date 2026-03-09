@@ -237,6 +237,14 @@ if (form && hint && submitBtn) {
 
 const dateInputWrap = document.getElementById("dateInputWrap");
 
+if (consultationDateInput) {
+  const today = new Date();
+  const yyyy = today.getFullYear();
+  const mm = String(today.getMonth() + 1).padStart(2, "0");
+  const dd = String(today.getDate()).padStart(2, "0");
+  consultationDateInput.min = `${yyyy}-${mm}-${dd}`;
+}
+
 if (dateInputWrap && consultationDateInput) {
   dateInputWrap.addEventListener("click", () => {
     if (typeof consultationDateInput.showPicker === "function") {
@@ -244,6 +252,14 @@ if (dateInputWrap && consultationDateInput) {
     } else {
       consultationDateInput.focus();
       consultationDateInput.click();
+    }
+  });
+}
+
+if (consultationDateInput) {
+  consultationDateInput.addEventListener("click", () => {
+    if (typeof consultationDateInput.showPicker === "function") {
+      consultationDateInput.showPicker();
     }
   });
 }
