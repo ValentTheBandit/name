@@ -439,6 +439,7 @@ select:focus {
   opacity: 1;
   cursor: pointer;
   transform: scale(1.5);
+  color: white
 }
 
 #consultationDate:hover {
